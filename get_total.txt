@@ -1,0 +1,8 @@
+create or replace trigger get_total
+ before insert or update on angajati
+ for each row
+  declare
+ begin
+   :new.total_brut := :new.salar_baza *(1+ :new.spor/100)+:new.premii_brute; 
+  END;
+  /

@@ -1,0 +1,2 @@
+create table procente(impozit_p float, cas_p float, cass_p float, parola varchar(30));
+insert into procente values(0.1,0.25,0.1,'fcRXclCURjE=');

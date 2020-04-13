@@ -1,0 +1,14 @@
+create or replace trigger get_impozit
+ before insert or update on angajati 
+ for each row
+  declare 
+    cassp procente.cass_p%type;
+    casp procente.cas_p%type;
+    impozitp procente.impozit_p%type;
+ begin
+   select cass_p into cassp from procente;
+   select cas_p into casp from procente;
+   select impozit_p into impozitp from procente;
+   :new.impozit := ((:new.salar_baza *(1+ :new.spor/100)+:new.premii_brute)-((:new.salar_baza *(1+ :new.spor/100)+:new.premii_brute)*casp)-((:new.salar_baza *(1+ :new.spor/100)+:new.premii_brute)*cassp))*impozitp; 
+  END;
+  /

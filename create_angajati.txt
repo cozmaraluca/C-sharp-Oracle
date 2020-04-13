@@ -1,0 +1,3 @@
+create table angajati(nr_crt integer, nume varchar(30), prenume varchar(30), functie varchar(30),salar_baza integer, spor integer, premii_brute integer, total_brut integer, brut_impozabil integer,impozit integer, cas integer, cass integer, retineri integer, virat_card integer);
+alter table angajati add (constraint angajati_pk primary key(nr_crt));
+create sequence angajati_sequence;

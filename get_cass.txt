@@ -1,0 +1,9 @@
+create or replace trigger get_cass
+ before insert or update on angajati 
+ for each row
+  declare cassp procente.cass_p%type;
+ begin
+   select cass_p into cassp from procente;
+   :new.cass := (:new.salar_baza *(1+ :new.spor/100)+:new.premii_brute)*cassp; 
+  END;
+  /
